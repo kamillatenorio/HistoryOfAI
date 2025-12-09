@@ -1,0 +1,333 @@
+body {
+    background-color: #9ebbe4;
+    font-family: 'Fira Sans', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%; 
+    position: relative;
+}
+
+.book {
+    width: 90%; 
+    max-width: 1200px; 
+    height: 850px;
+    position: relative;
+    display: flex;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    background-color: #fdfdfd;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.page-pair {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: none; 
+}
+
+.page-single {
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    border-radius: 10px;
+    display: none; 
+    padding-bottom: 40px;
+}
+
+.page {
+    width: 50%;
+    padding: 20px; 
+    box-sizing: border-box;
+    background-color: #fffefb;
+    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding-bottom: 40px; 
+}
+
+.left-page {
+    border-right: 1px solid #ccc;
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.right-page {
+    padding-left: 20px;
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.full-page {
+    width: 100%; 
+    background-color: #fffefb;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.citation {
+    padding-left: 20px;
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.activity {
+    padding-left: 20px;
+    color: #000000;
+    font-family: "Fira Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.chapter-title {
+    font-size: 2em; 
+    margin: 0; 
+    text-align: left; 
+    color: #000;
+    font-family: "Fira Sans";
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    width: 100%; 
+}
+
+.character-image {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%;
+    margin-bottom: 5px;
+    padding: 0;
+    object-fit: contain; 
+}
+
+.corner-image {
+    bottom: 0; 
+    left: 0; 
+    max-width: 100%;
+    width: 200px;
+    height: 200px;
+    object-fit: contain; 
+  }
+
+.image {
+    width: 90%; 
+    height: auto; 
+    max-width: 100%; 
+    padding: 5px;
+    border-radius: 20px;
+}
+
+iframe {
+    width: 100%; 
+    height: auto;
+    aspect-ratio: 16/9; 
+    border: none;
+}
+
+.navigation {
+    margin-top: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navigation button:hover {
+    background-color: #555;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 10px;
+    font-size: 14px;
+    color: #666;
+    font-family: 'Fira Sans', serif;
+}
+
+.page-number.left {
+    left: 20px; 
+}
+
+.page-number.right {
+    right: 20px; 
+}
+
+.page-number.hide {
+    display: none;
+}
+
+#progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 30px 0 10px 0; 
+    position: relative;
+    z-index: 10;
+}
+
+#progress-bar {
+    width: 100%; 
+    height: 30px; 
+    background-color: #ddd; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    position: relative; 
+}
+
+#progress-fill {
+    width: 0%; 
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #1E90FF);
+    transition: width 0.4s ease;
+    border-radius: 15px; 
+    position: relative;
+}
+
+#lamp-icon {
+    position: absolute;
+    top: 0px; 
+    left: 0;
+    width: 30px;  
+    height: 30px; 
+    transition: left 0.4s ease; 
+    pointer-events: none;  
+    z-index: 5;  
+}
+
+@media (max-width: 768px) {
+    .book {
+        width: 100%; 
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .page-pair {
+        flex-direction: column; 
+        height: auto; 
+    }
+
+    .page {
+        width: 100%; 
+        padding: 10px; 
+        box-shadow: none; 
+        justify-content: flex-start; 
+    }
+
+    .left-page {
+        border-right: none; 
+        border-bottom: 1px solid #ccc; 
+    }
+
+    .right-page {
+        padding-left: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em; 
+    }
+
+    .chapter-title {
+        font-size: 1.8em; 
+        text-align: left; 
+    }
+
+    p {
+        font-size: 0.9em; 
+    }
+
+    iframe {
+        height: calc(100vh - 50px);
+    }
+
+    .character-image {
+        width: 100%;
+        max-width: 100%; 
+    }
+
+    .corner-image{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navigation button {
+        padding: 8px 12px; 
+        font-size: 14px; 
+        margin: 5px; 
+    }
+
+    .page-number {
+        display: none;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .book {
+        width: 95%;
+        max-width: 1000px; 
+        height: 700px; 
+    }
+
+    .page-pair {
+        height: 100%; 
+    }
+
+    .page {
+        padding: 20px;
+        justify-content: center; 
+    }
+
+    .navigation button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    iframe {
+        height: 100%; 
+    }
+}

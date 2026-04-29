@@ -158,6 +158,15 @@ iframe {
     border: none;
 }
 
+.eliza-iframe {
+    width: 85%;
+    max-width: 900px;
+    height: 515px;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: auto;
+}
+
 .navigation {
     margin-top: 20px;
 }
